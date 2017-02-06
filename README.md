@@ -88,8 +88,11 @@ ipkg version 0.99.163
 
 ## Other
 Update the ipkg list of available packages : `ipkg update`
+
 Install a package using the command : `ipkg install <packagename>`
+
 You can list all available packages with : `ipkg list`
+
 
 ### Sources
 http://jasmin.sakura.ne.jp/blog/0244
