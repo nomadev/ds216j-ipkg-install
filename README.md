@@ -11,34 +11,38 @@ It appear that binaries aren't that much/all compatible. The reason must be that
 2. Get root privileges before starting.
 `sudo -i`
 3. Create optware root directory (do these one line at a time).
-```
+
+    ```
 mkdir /volume1/@optware
 mkdir /opt
 mount -o bind /volume1/@optware /opt
-```
+    ```
 4. Set up IPKG.
-```
+
+    ```
 feed=http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/unstable
 ipk_name=`wget -qO- $feed/Packages | awk '/^Filename: ipkg-opt/ {print $2}'`
 wget $feed/$ipk_name
 tar -xOvzf $ipk_name ./data.tar.gz | tar -C / -xzvf -
 mkdir -p /opt/etc/ipkg
 echo "src cross $feed" > /opt/etc/ipkg/feeds.conf
-```
+    ```
+
 5. Set PATH: Open: /etc/profile (with vi, nano etc.) and add the following to the last line.
 `PATH=/opt/bin:/opt/sbin:$PATH` <-- make sure to add $PATH to the end.
 6. Set the init script so that it can be used even after rebooting.
 i. Create /etc/rc.local with the following contents and attach execution privilege (chmod 755).
-```
+
+    ```
 #!/bin/sh
 
 # Optware setup
 [ -x /etc/rc.optware ] && /etc/rc.optware start
-```
+    ```
 
   ii. Create /etc/rc.optware with the following contents and attach execute privilege (chmod 755).
 
-```
+    ```
 #!/bin/sh
 
 if test -z "${REAL_OPT_DIR}"; then
@@ -70,13 +74,14 @@ case "$1" in
 esac
 
 exit 0
-```
+    ```
 
 IPKG can now be used.
-```
+
+    ```
 ipkg -v
 ipkg version 0.99.163
-```
+    ```
 
 ## Other
 Update the ipkg list of available packages : `ipkg update`
