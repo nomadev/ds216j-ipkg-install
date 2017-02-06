@@ -30,8 +30,10 @@ echo "src cross $feed" > /opt/etc/ipkg/feeds.conf
 
 5. Set PATH: Open: /etc/profile (with vi, nano etc.) and add the following to the last line.
 `PATH=/opt/bin:/opt/sbin:$PATH` <-- make sure to add $PATH to the end.
+
 6. Set the init script so that it can be used even after rebooting.
-i. Create /etc/rc.local with the following contents and attach execution privilege (chmod 755).
+
+  1. Create /etc/rc.local with the following contents and attach execution privilege (chmod 755).
 
     ```
 #!/bin/sh
@@ -40,7 +42,7 @@ i. Create /etc/rc.local with the following contents and attach execution privile
 [ -x /etc/rc.optware ] && /etc/rc.optware start
     ```
 
-  ii. Create /etc/rc.optware with the following contents and attach execute privilege (chmod 755).
+  1. Create /etc/rc.optware with the following contents and attach execute privilege (chmod 755).
 
     ```
 #!/bin/sh
@@ -76,7 +78,7 @@ esac
 exit 0
     ```
 
-IPKG can now be used.
+1. IPKG can now be used.
 
     ```
 ipkg -v
