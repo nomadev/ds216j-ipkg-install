@@ -30,7 +30,7 @@ echo "src cross $feed" > /opt/etc/ipkg/feeds.conf
 
 5. Set PATH: Open: /etc/profile (with vi, nano etc.) and add the following to the last line:
 
-`PATH=/opt/bin:/opt/sbin:$PATH` <-- make sure to add $PATH to the end.
+    `PATH=/opt/bin:/opt/sbin:$PATH` <-- make sure to add $PATH to the end.
 
 6. Set the init script so that it can be used even after rebooting.
 
