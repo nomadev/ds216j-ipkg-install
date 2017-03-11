@@ -1,3 +1,6 @@
+# Before you begin
+I've found a much better option here: https://github.com/Entware-ng/Entware-ng/wiki/Install-on-Synology-NAS
+
 # Installation of Optware IPKG
 Synology DS216j IPKG installation
 
